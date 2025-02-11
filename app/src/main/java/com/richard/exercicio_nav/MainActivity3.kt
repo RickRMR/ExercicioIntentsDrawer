@@ -23,6 +23,7 @@ class MainActivity3 : AppCompatActivity() {
 
         val binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar3)
 
         drawer1 = binding.root
         navDrawer1 = binding.navView1
@@ -46,8 +47,8 @@ class MainActivity3 : AppCompatActivity() {
         navDrawer1.setNavigationItemSelectedListener { menuItem ->
             drawer1.closeDrawers()
             when(menuItem.itemId){
-                R.id.bottom_option_1 ->{
-                   onBackPressed()
+                R.id.bottom_option_1 ->{val intent1 = Intent(this, MainActivity2::class.java)
+                    startActivity(intent1)
                     true
                 }
                 else -> false
@@ -74,11 +75,11 @@ class MainActivity3 : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.meu_settings ->{
-                onBackPressed()
+            R.id.meu_settings ->{val intent1 = Intent(this, MainActivity::class.java)
+                startActivity(intent1)
                 true
             }
-            else-> false
+            else -> false
         }
     }
 }
